@@ -1,8 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 
+import p1 from "../../assets/slider/p1.jpg";
+import p2 from "../../assets/slider/p2.jpg";
+import p3 from "../../assets/slider/p3.jpg";
+import p4 from "../../assets/slider/p4.jpg";
+
 export const Slider = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
-  const carouselImages = ['https://i.ibb.co/P5HFym8/nu-2.jpg','https://i.ibb.co/1ZN29tL/nu-3.jpg','https://i.ibb.co/W0wYp9Z/nu-4.jpg','https://i.ibb.co/0CpYyMr/nu-1.webp','https://i.ibb.co/VxHDDQ5/nu-6.jpg'];
+  const carouselImages = [p1,p2,p3,p4];
   const nextSlider = useCallback(() => setCurrentSlider((currentSlider) => currentSlider === carouselImages.length - 1 ? 0 : currentSlider + 1), [carouselImages.length]);
 
   // if you don't want to change the slider automatically then you can just remove the useEffect
@@ -25,7 +30,7 @@ export const Slider = () => {
         <div className="ease-linear duration-500 flex transform-gpu" style={{ transform: `translateX(-${currentSlider * 100}%)`}}>
           {/* sliders */}
           {carouselImages.map((slide, inx) => (
-            <img key={slide} src={slide} className="min-w-full h-60 bg-black/20 sm:h-96 md:h-[540px] object-cover" alt={`Slider - ${inx + 1}`}/>
+            <img key={slide} src={slide} className="min-w-full  h-60 bg-black/20 sm:h-96 md:h-[540px] object-cover" alt={`Slider - ${inx + 1}`}/>
           ))}
         </div>
     </div>
